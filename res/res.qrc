@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>save2.png</file>
+        <file>mail.png</file>
+        <file>mail3.png</file>
+        <file>opt.png</file>
+        <file>add.png</file>
+        <file>download.png</file>
+        <file>filename.png</file>
+        <file>send.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>707</width>
+    <height>491</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SendMail</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="res/res.qrc">
+    <normaloff>:/mail3.png</normaloff>:/mail3.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="3">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Password:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="0">
+     <widget class="QPushButton" name="btnSend">
+      <property name="text">
+       <string>Enviar</string>
+      </property>
+      <property name="icon">
+       <iconset resource="res/res.qrc">
+        <normaloff>:/send.png</normaloff>:/send.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>Link:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>MIME Email</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="lnEdtSMTP"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QCheckBox" name="chkAuth">
+      <property name="text">
+       <string>Usar Autenticación</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string>Subject:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLineEdit" name="lnEdtUser"/>
+    </item>
+    <item row="0" column="4">
+     <widget class="QPushButton" name="btnGet">
+      <property name="text">
+       <string>Descargar</string>
+      </property>
+      <property name="icon">
+       <iconset resource="res/res.qrc">
+        <normaloff>:/download.png</normaloff>:/download.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="btnNFile">
+      <property name="toolTip">
+       <string>Obtener nombre del archivo</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="res/res.qrc">
+        <normaloff>:/filename.png</normaloff>:/filename.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>48</width>
+        <height>48</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Puerto:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Sender:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Servidor SMTP:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Recipient:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Usuario:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QSpinBox" name="spPort">
+      <property name="maximum">
+       <number>999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>Attatchments:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4" colspan="4">
+     <widget class="QCheckBox" name="chkSSL">
+      <property name="text">
+       <string>SSL</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" colspan="3">
+     <widget class="QLineEdit" name="lnEdtUrl"/>
+    </item>
+    <item row="8" column="10">
+     <layout class="QVBoxLayout" name="lyImg"/>
+    </item>
+    <item row="8" column="7" colspan="2">
+     <widget class="QPushButton" name="btnAttach">
+      <property name="text">
+       <string>Agregar...</string>
+      </property>
+      <property name="icon">
+       <iconset resource="res/res.qrc">
+        <normaloff>:/add.png</normaloff>:/add.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="9">
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="9">
+     <widget class="QPushButton" name="btnOpt">
+      <property name="minimumSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="res/res.qrc">
+        <normaloff>:/opt.png</normaloff>:/opt.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QPushButton" name="btnSave">
+      <property name="minimumSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="res/res.qrc">
+        <normaloff>:/save2.png</normaloff>:/save2.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6" colspan="2">
+     <widget class="QCheckBox" name="chkOpen">
+      <property name="text">
+       <string>Abrir
+Automáticamente</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="4" colspan="7">
+     <widget class="QLineEdit" name="lnEdtPasswd"/>
+    </item>
+    <item row="4" column="1" colspan="10">
+     <widget class="QLineEdit" name="lnEdtSender"/>
+    </item>
+    <item row="5" column="1" colspan="10">
+     <widget class="QLineEdit" name="lnEdtRecip"/>
+    </item>
+    <item row="6" column="1" colspan="10">
+     <widget class="QLineEdit" name="lnEdtSubj"/>
+    </item>
+    <item row="7" column="0" colspan="11">
+     <widget class="QTextEdit" name="txtMsg"/>
+    </item>
+    <item row="9" column="0" colspan="11">
+     <widget class="QListWidget" name="lstWAttach"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <tabstops>
+  <tabstop>lnEdtUrl</tabstop>
+  <tabstop>btnGet</tabstop>
+  <tabstop>btnNFile</tabstop>
+  <tabstop>chkOpen</tabstop>
+  <tabstop>btnSave</tabstop>
+  <tabstop>btnOpt</tabstop>
+  <tabstop>lnEdtSMTP</tabstop>
+  <tabstop>spPort</tabstop>
+  <tabstop>chkSSL</tabstop>
+  <tabstop>chkAuth</tabstop>
+  <tabstop>lnEdtUser</tabstop>
+  <tabstop>lnEdtPasswd</tabstop>
+  <tabstop>lnEdtSender</tabstop>
+  <tabstop>lnEdtRecip</tabstop>
+  <tabstop>lnEdtSubj</tabstop>
+  <tabstop>txtMsg</tabstop>
+  <tabstop>btnAttach</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>lstWAttach</tabstop>
+  <tabstop>btnSend</tabstop>
+ </tabstops>
+ <resources>
+  <include location="res/res.qrc"/>
+ </resources>
+ <connections/>
+</ui>
