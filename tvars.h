@@ -8,6 +8,8 @@ public:
     TVars();
     bool PrevTagged;
     bool SimpleName;
+    bool extTwitter;
+    int Tema;
 };
 
 #endif // TVARS_H

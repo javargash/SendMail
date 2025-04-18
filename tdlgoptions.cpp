@@ -29,6 +29,8 @@ void TDlgOptions::cargaOtherConfig()
     Vars.PrevTagged=ui->chkPrevTagged->isChecked();*/
     ui->chkPrevTagged->setChecked(Vars.PrevTagged);
     ui->chkSimpleName->setChecked(Vars.SimpleName);
+    ui->chkTwitter->setChecked(Vars.extTwitter);
+    ui->cmbTema->setCurrentIndex(Vars.Tema);
 }
 //--------------------------------------------
 void TDlgOptions::guardaOtherConfig()
@@ -37,8 +39,12 @@ void TDlgOptions::guardaOtherConfig()
     QSettings Settings(Archivo,QSettings::IniFormat);
     Settings.setValue("PrevTagged",ui->chkPrevTagged->isChecked());
     Vars.PrevTagged=ui->chkPrevTagged->isChecked();
+    Settings.setValue("extTwitter",ui->chkTwitter->isChecked());
+    Vars.extTwitter=ui->chkTwitter->isChecked();
     Settings.setValue("SimpleName",ui->chkSimpleName->isChecked());
     Vars.SimpleName=ui->chkSimpleName->isChecked();
+    Settings.setValue("Tema",ui->cmbTema->currentIndex());
+    Vars.Tema=ui->cmbTema->currentIndex();
     QMessageBox::information(this,"SendMail","Configuración guardada exitosamente",QMessageBox::Ok);
 }
 //--------------------------------------------

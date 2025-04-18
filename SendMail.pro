@@ -50,34 +50,16 @@ RESOURCES += \
 win32:RC_ICONS += "res/mail3.ico"
 
 # LINUX 5.13
-#unix:!macx: LIBS += -L$$PWD/../../SMTP/lib/5.13/ -lSmtpMime
+#unix:!macx: LIBS += -L/mnt/sdb3/QT/SMTP/lib/5.13/ -lSmtpMime
 
-#INCLUDEPATH += $$PWD/../../SMTP/SmtpClient-for-Qt-dev/src
-#DEPENDPATH += $$PWD/../../SMTP/SmtpClient-for-Qt-dev/src
+#INCLUDEPATH += /mnt/sdb3/QT/SMTP/SmtpClient-for-Qt-dev/src/
+#DEPENDPATH += /mnt/sdb3/QT/SMTP/SmtpClient-for-Qt-dev/src/
 
 #unix:!macx: LIBS += -L$$PWD/../../SMTP/win/MSVC/ -lSmtpMime2
 
-#MINGW
+#MINGW QT 6.8.1
 
+win32: LIBS += -L$$PWD/../SMTP/win/MinGW/6.8.1/ -lSmtpMime2
 
-
-#win32: LIBS += -L$$PWD/../../SMTP/win/MinGW/ -lSmtpMime2
-
-#INCLUDEPATH += $$PWD/../../SMTP/SmtpClient-for-Qt-dev/src
-#DEPENDPATH += $$PWD/../../SMTP/SmtpClient-for-Qt-dev/src
-
-#win32:!win32-g++: PRE_TARGETDEPS += $$PWD/../../SMTP/win/MinGW/SmtpMime2.lib
-#else:win32-g++: PRE_TARGETDEPS += $$PWD/../../SMTP/win/MinGW/libSmtpMime2.a
-
-#win32: LIBS += -L$$PWD/../../SMTP/win/MSVC/ -lSmtpMime2
-
-#INCLUDEPATH += $$PWD/../../SMTP/SmtpClient-for-Qt-dev/src
-#DEPENDPATH += $$PWD/../../SMTP/SmtpClient-for-Qt-dev/src
-
-
-#MINGW QT 6.7.2
-
-win32: LIBS += -L$$PWD/../../SMTP/win/MinGW/6.7.2/ -lSmtpMime2
-
-INCLUDEPATH += $$PWD/../../SMTP/SmtpClient-for-Qt-dev/src
-DEPENDPATH += $$PWD/../../SMTP/SmtpClient-for-Qt-dev/src
+INCLUDEPATH += $$PWD/../SMTP/SmtpClient-for-Qt-dev/src
+DEPENDPATH += $$PWD/../SMTP/SmtpClient-for-Qt-dev/src

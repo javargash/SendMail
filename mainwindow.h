@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QApplication>
 #include <QClipboard>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
@@ -32,7 +33,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QApplication *App,QWidget *parent = nullptr);
     ~MainWindow();
     static EmailAddress stringToEmail(const QString & str);
     SmtpClient *smtptr;
@@ -58,6 +59,7 @@ private slots:
     void on_btnNFile_clicked();
     void continueSendMail();
     void loadMiniLocal(QString ruta);
+    void cargaTema(int nTema);
 
 protected:
     void mousePressEvent(QMouseEvent* event);
@@ -79,5 +81,6 @@ private:
     QUrl url;
     bool Send;
     bool dialogUsed;
+    QApplication *a;
 };
 #endif // MAINWINDOW_H

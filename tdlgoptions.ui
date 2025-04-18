@@ -3,14 +3,14 @@
  <class>TDlgOptions</class>
  <widget class="QDialog" name="TDlgOptions">
   <property name="windowModality">
-   <enum>Qt::WindowModal</enum>
+   <enum>Qt::WindowModality::WindowModal</enum>
   </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>337</width>
-    <height>163</height>
+    <height>178</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,10 +34,10 @@
    <item row="0" column="0" colspan="2">
     <widget class="QFrame" name="frame">
      <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
+      <enum>QFrame::Shape::StyledPanel</enum>
      </property>
      <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
+      <enum>QFrame::Shadow::Raised</enum>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
@@ -48,11 +48,52 @@ por tamaño original en Tagged</string>
         </property>
        </widget>
       </item>
+      <item row="4" column="0">
+       <widget class="QComboBox" name="cmbTema">
+        <property name="toolTip">
+         <string>Tema, se aplicarán los cambios al reiniciar la aplicación</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Tema claro</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Tema oscuro</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Tema candy</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Colores de sistema</string>
+         </property>
+        </item>
+       </widget>
+      </item>
       <item row="1" column="0">
        <widget class="QCheckBox" name="chkSimpleName">
         <property name="text">
          <string>Usar sólo el nombre en el encabezado del correo
 en lugar de la URL completa</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QCheckBox" name="chkTwitter">
+        <property name="text">
+         <string>Agregar extensión JPG en imágenes de Twitter/X</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Utilizar tema:</string>
         </property>
        </widget>
       </item>

@@ -3,12 +3,13 @@
 
 TVars Vars;
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QApplication *App,QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
+    a=App;
     clipboard = QApplication::clipboard();
     Sended=false;
     lblImg=new ClickableLabel(this);
@@ -132,6 +133,7 @@ void MainWindow::loadImage()
     lblImg->setPixmap(buttonImage.scaled(w,h,Qt::KeepAspectRatio));
     url=Url;
     QString nombre=url.fileName();
+
 #if (defined (LINUX) || defined (__linux__))
     QFile archivo("/tmp/"+nombre);
     LocalFile="/tmp/"+nombre;
@@ -139,7 +141,7 @@ void MainWindow::loadImage()
 #if defined(WIN32)
     ruta=QStandardPaths::writableLocation(QStandardPaths::TempLocation)+"/"+nombre;
     QFile archivo(ruta);
-    LocalFile=ruta;
+    LocalFile=ruta;    
     if(dialogUsed)
         LocalFile=ui->lstWAttach->item(ui->lstWAttach->count()-1)->text();
 #endif
@@ -148,6 +150,11 @@ void MainWindow::loadImage()
         archivo.write(m_pImgCtrl->downloadedData());
         archivo.close();
         downloaded=true;
+    }
+    if(Vars.extTwitter)
+    {
+        archivo.rename(LocalFile,LocalFile+".jpg");
+        LocalFile=LocalFile+".jpg";
     }
     //openImg(false);
     if(Sended)
@@ -204,6 +211,9 @@ void MainWindow::cargaConfig()
     ui->lnEdtRecip->setText(Settings.value("Recipient","").toString());
     Vars.PrevTagged=Settings.value("PrevTagged","false").toBool();
     Vars.SimpleName=Settings.value("SimpleName","false").toBool();
+    Vars.extTwitter=Settings.value("ExtTwitter","false").toBool();
+    Vars.Tema=Settings.value("Tema","3").toInt();
+    cargaTema(Vars.Tema);
 }
 //----------------------------------------------------------
 void MainWindow::openImg(bool showProgress)
@@ -266,10 +276,24 @@ void MainWindow::continueSendMail()
     }
     QStringList stringList;
 #if (defined (LINUX) || defined (__linux__))
-    stringList<<"/tmp/"+QUrl(ui->lnEdtUrl->text()).fileName();
+    if(Vars.extTwitter)
+    {
+        stringList<<LocalFile;
+    }
+    else
+    {
+        stringList<<"/tmp/"+QUrl(ui->lnEdtUrl->text()).fileName();
+    }
 #endif
 #if defined(WIN32)
-    stringList<<QStandardPaths::writableLocation(QStandardPaths::TempLocation)+"/"+QUrl(ui->lnEdtUrl->text()).fileName();
+    if(Vars.extTwitter)
+    {
+        stringList<<LocalFile;
+    }
+    else
+    {
+        stringList<<QStandardPaths::writableLocation(QStandardPaths::TempLocation)+"/"+QUrl(ui->lnEdtUrl->text()).fileName();
+    }
 #endif
     ui->lstWAttach->addItems(stringList);
     QString host = ui->lnEdtSMTP->text();
@@ -375,4 +399,22 @@ void MainWindow::loadMiniLocal(QString ruta)
     int w = lblImg->width();
     int h = lblImg->height();
     lblImg->setPixmap(buttonImage.scaled(w,h,Qt::KeepAspectRatio));
+}
+//----------------------------------------------------------
+void MainWindow::cargaTema(int nTema)
+{
+    // Obtener la ruta del directorio del ejecutable
+    QString appDir = QCoreApplication::applicationDirPath();
+
+    // Construir la ruta completa al archivo de estilo
+    QString styleFilePath = QDir(appDir).filePath("temas/stylesSkin0"+QString::number(nTema+1)+".qss");
+    QFile file(styleFilePath);
+    if (file.open(QFile::ReadOnly | QFile::Text)) {
+        QTextStream stream(&file);
+        QString styleSheet = stream.readAll();
+        a->setStyleSheet(styleSheet);
+        file.close();
+    } else {
+        qWarning("No se pudo abrir el archivo de estilo.");
+    }
 }
